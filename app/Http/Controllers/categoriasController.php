@@ -21,4 +21,8 @@ class categoriasController extends Controller
     {
         return $categoria;
     }
+    public function destroy(categoria $categoria)
+    {
+        $categoria->delete();
+    }
 }

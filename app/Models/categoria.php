@@ -12,4 +12,6 @@ class categoria extends Model
     protected $fillable = [
         'nombre' 
     ];
+
+    protected $visible = ['id','nombre'];
 }
