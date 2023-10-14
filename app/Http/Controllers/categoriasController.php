@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\categoria;
-use Illuminate\Support\Facades\Redis;
+ 
 
 class categoriasController extends Controller
 {

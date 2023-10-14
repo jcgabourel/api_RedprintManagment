@@ -8,7 +8,12 @@ class contactsController extends Controller
 {
     function categorias()
     {
-       $data =[ "id"=> "int", "nombre" => "string" ]; 
-        return   $data  ;
+        $data = ["id" => "int", "nombre" => "string"];
+        return   $data;
+    }
+    function    marcas()
+    {
+        $data = ["id" => "int", "nombre" => "string"];
+        return   $data;
     }
 }
