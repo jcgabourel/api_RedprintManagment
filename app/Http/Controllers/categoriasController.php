@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\categoria;
+use Illuminate\Support\Facades\Redis;
 
 class categoriasController extends Controller
 {
@@ -24,5 +25,10 @@ class categoriasController extends Controller
     public function destroy(categoria $categoria)
     {
         $categoria->delete();
+    }
+    function update (Request $request, categoria $categoria)
+    {
+        $categoria->nombre = $request->input("nombre");
+        $categoria->save();
     }
 }
