@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\contactsController;
 use App\Http\Controllers\categoriasController;
 use App\Http\Controllers\marcasController;
+use App\Http\Controllers\locacionesController;
+
 
 
 /*
@@ -25,6 +27,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource ('categorias',categoriasController::class);
 Route::apiResource ('marcas',marcasController::class);
+Route::apiResource ('locaciones',locacionesController::class);
+
 
 Route::get('contracts/categorias',[contactsController::class,'categorias']);
 Route::get('contracts/marcas',[contactsController::class,'marcas']);
+Route::get('contracts/locaciones',[contactsController::class,'locaciones']);
+

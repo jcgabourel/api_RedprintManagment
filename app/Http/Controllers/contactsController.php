@@ -16,4 +16,10 @@ class contactsController extends Controller
         $data = ["id" => "int", "nombre" => "string"];
         return   $data;
     }
+
+    function    locaciones()
+    {
+        $data = ["id" => "int", "nombre" => "string"];
+        return   $data;
+    }
 }
