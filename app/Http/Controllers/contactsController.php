@@ -22,4 +22,10 @@ class contactsController extends Controller
         $data = ["id" => "int", "nombre" => "string"];
         return   $data;
     }
+
+    function    productos()
+    {
+        $data = ["id" => "int", "nombre" => "string","categoria"=>"nombre" ,"marca"=>"nombre"];
+        return   $data;
+    }
 }

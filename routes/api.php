@@ -37,4 +37,6 @@ Route::apiResource ('productos',productosController::class);
 Route::get('contracts/categorias',[contactsController::class,'categorias']);
 Route::get('contracts/marcas',[contactsController::class,'marcas']);
 Route::get('contracts/locaciones',[contactsController::class,'locaciones']);
+Route::get('contracts/productos',[contactsController::class,'productos']);
+
 
