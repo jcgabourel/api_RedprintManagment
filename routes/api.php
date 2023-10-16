@@ -7,6 +7,8 @@ use App\Http\Controllers\categoriasController;
 use App\Http\Controllers\marcasController;
 use App\Http\Controllers\locacionesController;
 use App\Http\Controllers\productosController;
+use App\Http\Controllers\existenciasController;
+
 
 
 
@@ -31,6 +33,8 @@ Route::apiResource ('categorias',categoriasController::class);
 Route::apiResource ('marcas',marcasController::class);
 Route::apiResource ('locaciones',locacionesController::class);
 Route::apiResource ('productos',productosController::class);
+Route::apiResource ('existencias',existenciasController::class);
+
 
 
 
@@ -38,5 +42,7 @@ Route::get('contracts/categorias',[contactsController::class,'categorias']);
 Route::get('contracts/marcas',[contactsController::class,'marcas']);
 Route::get('contracts/locaciones',[contactsController::class,'locaciones']);
 Route::get('contracts/productos',[contactsController::class,'productos']);
+Route::get('contracts/existencias',[contactsController::class,'existencias']);
+
 
 

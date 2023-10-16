@@ -28,4 +28,10 @@ class contactsController extends Controller
         $data = ["id" => "int", "nombre" => "string","categoria"=>"nombre" ,"marca"=>"nombre"];
         return   $data;
     }
+
+    function    stock()
+    {
+        $data = ["id" => "int", "producto" => "nombre","locaciones"=>"nombre" ,"cantidad"=>"int"];
+        return   $data;
+    }
 }
