@@ -13,11 +13,12 @@ class productosController extends Controller
     }
     function store(Request $request)
     {
-        producto::create([
+        $producto = producto::create([
             "nombre" => $request->input("nombre"),
             "categoria_id" => $request->input("categoria_id"),
             "marca_id" => $request->input("marca_id")
         ]);
+        return $producto ;
     }
     public function show(producto $producto)
     {

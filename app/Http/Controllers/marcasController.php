@@ -13,7 +13,7 @@ class marcasController extends Controller
     }
     function store(Request $request)
     {
-        marca::create(["nombre" => $request->input("nombre")]);
+        return  marca::create(["nombre" => $request->input("nombre")]);
     }
     public function show(marca $marca)
     {

@@ -16,7 +16,7 @@ class categoriasController extends Controller
     function store(Request $request)
     {
          
-        categoria::create(["nombre"=>$request->input("nombre")]);
+        return  categoria::create(["nombre"=>$request->input("nombre")]);
     }
     public function show(categoria $categoria)
     {

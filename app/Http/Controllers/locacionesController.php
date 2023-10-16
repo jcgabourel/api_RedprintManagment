@@ -13,7 +13,7 @@ class locacionesController extends Controller
     }
     function store(Request $request)
     {
-        locacion::create(["nombre" => $request->input("nombre")]);
+        return locacion::create(["nombre" => $request->input("nombre")]);
     }
     public function show(locacion $locacion)
     {
