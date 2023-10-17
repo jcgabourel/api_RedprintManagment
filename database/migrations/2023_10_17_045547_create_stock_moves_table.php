@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('existencias', function (Blueprint $table) {
+        Schema::create('stock_moves', function (Blueprint $table) {
             $table->id();
             $table->foreignId('producto_id')->constrained();
             $table->foreignId('locacion_id')->constrained("locaciones");
             $table->integer('cantidad');
+            $table->foreignId('stock_move_type_id')->constrained();
+            $table->enum('estatus',["Pendiente","Procesado"]);
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('existencias');
+        Schema::dropIfExists('stock_moves');
     }
 };

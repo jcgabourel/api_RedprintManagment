@@ -8,6 +8,8 @@ use App\Http\Controllers\marcasController;
 use App\Http\Controllers\locacionesController;
 use App\Http\Controllers\productosController;
 use App\Http\Controllers\existenciasController;
+use App\Http\Controllers\movimientosController;
+
 
 
 
@@ -34,6 +36,8 @@ Route::apiResource ('marcas',marcasController::class);
 Route::apiResource ('locaciones',locacionesController::class);
 Route::apiResource ('productos',productosController::class);
 Route::apiResource ('existencias',existenciasController::class);
+Route::apiResource ('movimientos',movimientosController::class);
+
 
 
 
