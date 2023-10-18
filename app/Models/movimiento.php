@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Events\movimientoCreado;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 
 class movimiento extends Model
 {
@@ -16,6 +18,11 @@ class movimiento extends Model
 
     
     protected $visible = [  'producto','locacion','tipo','cantidad','estatus'];
+
+    protected $dispatchesEvents = [
+        'created' => movimientoCreado::class,        
+    ];
+
     public function producto()
     {
         return $this->belongsTo(producto::class, 'producto_id');
