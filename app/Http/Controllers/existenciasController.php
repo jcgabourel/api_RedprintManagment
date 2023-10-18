@@ -12,7 +12,7 @@ class existenciasController extends Controller
     //
     function index()
     {
-        return  producto::with('existencias.locacion')->withSum('existencias as existencias_suma', 'cantidad' ,'existencias')->get();
+        return  producto::has('existencias')->with('existencias.locacion')->withSum('existencias as existencias_suma', 'cantidad' ,'existencias')->get();
 
       // return producto::with('existencias')->get();
         // existencia::with('locacion', 'producto')->get();

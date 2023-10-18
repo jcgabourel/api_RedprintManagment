@@ -15,6 +15,17 @@ class movimientosController extends Controller
 
     function store(Request $request)
     { //'producto_id' ,'locacion_id','cantidad','stock_move_type_id''
+
+        $data = $request->validate([
+            '*.producto_id' => 'required',
+            '*.locacion_id' => 'required',
+            '*.cantidad' => 'required',
+            '*.stock_move_type_id' => 'required',
+        ]);
+
+
+        movimiento::insert($data);
+return 2;
         $movimiento = movimiento::create([
             "producto_id" => $request->input("producto_id"),
             "locacion_id" => $request->input("locacion_id"),
