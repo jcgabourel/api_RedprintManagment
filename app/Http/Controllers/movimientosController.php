@@ -16,6 +16,17 @@ class movimientosController extends Controller
     function store(Request $request)
     { //'producto_id' ,'locacion_id','cantidad','stock_move_type_id''
 
+       
+        $movimiento = movimiento::create([
+            "producto_id" => $request->input("producto_id"),
+            "locacion_id" => $request->input("locacion_id"),
+            "cantidad" => $request->input("cantidad"),
+            "stock_move_type_id" => $request->input("stock_move_type_id")
+        ]);
+        return $movimiento ;
+    }
+
+    function storeBatch(Request $request){
         $data = $request->validate([
             '*.producto_id' => 'required',
             '*.locacion_id' => 'required',
@@ -25,13 +36,7 @@ class movimientosController extends Controller
 
 
         movimiento::insert($data);
-return 2;
-        $movimiento = movimiento::create([
-            "producto_id" => $request->input("producto_id"),
-            "locacion_id" => $request->input("locacion_id"),
-            "cantidad" => $request->input("cantidad"),
-            "stock_move_type_id" => $request->input("stock_move_type_id")
-        ]);
-        return $movimiento ;
+        return response()->json([], 200);
+
     }
 }

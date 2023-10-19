@@ -39,6 +39,7 @@ Route::apiResource ('locaciones',locacionesController::class);
 Route::apiResource ('productos',productosController::class);
 Route::apiResource ('existencias',existenciasController::class);
 Route::apiResource ('movimientos',movimientosController::class);
+Route::get('movimientos/batch',[movimientosController::class,'storeBatch']);
 Route::apiResource ('tiposmovimiento',tiposmovimientoController::class);
 
 
