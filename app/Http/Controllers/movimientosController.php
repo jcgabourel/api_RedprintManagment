@@ -39,4 +39,9 @@ class movimientosController extends Controller
         return response()->json([], 200);
 
     }
+
+    public function destroy(movimiento $movimiento)
+    {
+        $movimiento->delete();
+    }
 }

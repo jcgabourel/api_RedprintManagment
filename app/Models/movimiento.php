@@ -17,7 +17,7 @@ class movimiento extends Model
     ];
 
     
-    protected $visible = [  'producto','locacion','tipo','cantidad','estatus'];
+    protected $visible = [ 'id', 'producto','locacion','tipo','cantidad','estatus'];
 
     protected $dispatchesEvents = [
         'created' => movimientoCreado::class,        
