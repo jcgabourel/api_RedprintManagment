@@ -20,7 +20,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        movimientoCreado::class=>[actualizaExistencia::class]
+        movimientoCreado::class=>[actualizaExistencia::class],
+        movimientoEliminado::class=>[elminiaExistencia::class],
+        movimientosCreados::class=>[actualizaExistencias::class],
     ];
 
     /**

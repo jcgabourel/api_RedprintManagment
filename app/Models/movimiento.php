@@ -13,11 +13,15 @@ class movimiento extends Model
 
     protected $table = 'stock_moves';
     protected $fillable = [
-        'producto_id' ,'locacion_id','cantidad','stock_move_type_id'
+        'producto_id' ,'locacion_id','cantidad','stock_move_type_id','estatus'
     ];
 
     
     protected $visible = [ 'id', 'producto','locacion','tipo','cantidad','estatus'];
+
+    // protected $attributes = [
+    //     'estatus' => 'Pendiente'          
+    // ];
 
     protected $dispatchesEvents = [
         'created' => movimientoCreado::class,        

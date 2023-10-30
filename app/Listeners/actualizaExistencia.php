@@ -7,6 +7,8 @@ use App\Models\existencia;
 use App\Models\movimiento;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\Log;
+
 
 class actualizaExistencia
 {
@@ -21,10 +23,9 @@ class actualizaExistencia
     /**
      * Handle the event.
      */
-    public function handle(movimientoCreado $event): void
+    public function handle(  $event): void
     {
-        //
-
+        //        
         
         $existencia = existencia::firstOrNew(["producto_id"=>$event->movimiento->producto_id,
                                               "locacion_id"=>$event->movimiento->locacion_id],
@@ -34,11 +35,13 @@ class actualizaExistencia
         $cantidad =movimiento::where(["producto_id"=>$event->movimiento->producto_id])
                              ->where(["locacion_id"=>$event->movimiento->locacion_id])
                              ->sum("cantidad");
+ 
+            $existencia->cantidad = $cantidad;     
+            $existencia->save();
+         
+       
 
-        $existencia->cantidad = $cantidad;
-        $existencia->save();
-        $event->movimiento->estatus ="Procesado";
-        $event->movimiento->save();
+  
 
     }
 }

@@ -21,6 +21,7 @@ class movimientosController extends Controller
             "producto_id" => $request->input("producto_id"),
             "locacion_id" => $request->input("locacion_id"),
             "cantidad" => $request->input("cantidad"),
+            "estatus" =>'Procesado',
             "stock_move_type_id" => $request->input("stock_move_type_id")
         ]);
         return $movimiento ;
@@ -31,11 +32,16 @@ class movimientosController extends Controller
             '*.producto_id' => 'required',
             '*.locacion_id' => 'required',
             '*.cantidad' => 'required',
+            "*.estatus" =>'Procesado',
             '*.stock_move_type_id' => 'required',
         ]);
 
 
         movimiento::insert($data);
+
+         
+        event(new movimientosCreados($data));
+
         return response()->json([], 200);
 
     }
