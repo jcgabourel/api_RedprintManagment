@@ -21,6 +21,7 @@ class movimiento extends Model
 
     protected $dispatchesEvents = [
         'created' => movimientoCreado::class,        
+        'deleted' => movimientoCreado::class,  
     ];
 
     public function producto()

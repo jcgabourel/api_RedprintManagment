@@ -24,6 +24,8 @@ class actualizaExistencia
     public function handle(movimientoCreado $event): void
     {
         //
+
+        
         $existencia = existencia::firstOrNew(["producto_id"=>$event->movimiento->producto_id,
                                               "locacion_id"=>$event->movimiento->locacion_id],
                                              ["cantidad"=>0]);
@@ -35,5 +37,8 @@ class actualizaExistencia
 
         $existencia->cantidad = $cantidad;
         $existencia->save();
+        $event->movimiento->estatus ="Procesado";
+        $event->movimiento->save();
+
     }
 }
