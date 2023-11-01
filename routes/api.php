@@ -2,13 +2,14 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\contactsController;
-use App\Http\Controllers\categoriasController;
 use App\Http\Controllers\marcasController;
-use App\Http\Controllers\locacionesController;
+use App\Http\Controllers\contactsController;
 use App\Http\Controllers\productosController;
+use App\Http\Controllers\categoriasController;
+use App\Http\Controllers\locacionesController;
 use App\Http\Controllers\existenciasController;
 use App\Http\Controllers\movimientosController;
+use App\Http\Controllers\proveedoresController;
 use App\Http\Controllers\tiposmovimientoController;
 
 
@@ -36,6 +37,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource ('categorias',categoriasController::class);
 Route::apiResource ('marcas',marcasController::class);
 Route::apiResource ('locaciones',locacionesController::class)->parameters(['locaciones' => 'locacion']);
+Route::apiResource ('proveedores',proveedoresController::class)->parameters(['proveedores' => 'proveedor']);
+
 //Route::get('locaciones/{locacion}',[locacionesController::class,'show']);
 
 Route::apiResource ('productos',productosController::class);
