@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use App\Events\movimientoCreado;
+use App\Events\movimientoEliminado;
+
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,7 +28,7 @@ class movimiento extends Model
 
     protected $dispatchesEvents = [
         'created' => movimientoCreado::class,        
-        'deleted' => movimientoCreado::class,  
+        'deleted' => movimientoEliminado::class,  
     ];
 
     public function producto()

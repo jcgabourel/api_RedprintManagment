@@ -23,21 +23,19 @@ class actualizaExistencia
     /**
      * Handle the event.
      */
-    public function handle(  $event): void
-    {
-        //        
+    public function handle( movimientoCreado $event): void
+    {        
         
         $existencia = existencia::firstOrNew(["producto_id"=>$event->movimiento->producto_id,
                                               "locacion_id"=>$event->movimiento->locacion_id],
-                                             ["cantidad"=>0]);
-        
+                                             ["cantidad"=>0]);        
     
         $cantidad =movimiento::where(["producto_id"=>$event->movimiento->producto_id])
                              ->where(["locacion_id"=>$event->movimiento->locacion_id])
                              ->sum("cantidad");
  
-            $existencia->cantidad = $cantidad;     
-            $existencia->save();
+        $existencia->cantidad = $cantidad;     
+        $existencia->save();
          
        
 

@@ -15,9 +15,12 @@ class locacionesController extends Controller
     {
         return locacion::create(["nombre" => $request->input("nombre")]);
     }
-    public function show(locacion $locacion)
+    public function show(locacion  $locacion)
     {
-        return $locacion;
+        return $locacion ;
+       // $l = locacion::find($locacion)
+        //return $l;
+        
     }
     public function destroy(locacion $locacion)
     {

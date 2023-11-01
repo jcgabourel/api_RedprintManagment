@@ -35,7 +35,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource ('categorias',categoriasController::class);
 Route::apiResource ('marcas',marcasController::class);
-Route::apiResource ('locaciones',locacionesController::class);
+Route::apiResource ('locaciones',locacionesController::class)->parameters(['locaciones' => 'locacion']);
+//Route::get('locaciones/{locacion}',[locacionesController::class,'show']);
+
 Route::apiResource ('productos',productosController::class);
 Route::apiResource ('existencias',existenciasController::class);
 Route::apiResource ('movimientos',movimientosController::class);

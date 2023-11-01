@@ -15,7 +15,8 @@ use App\Models\movimiento;
 class movimientoEliminado
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
+    public $movimiento;
+    
     /**
      * Create a new event instance.
      */

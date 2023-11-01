@@ -3,7 +3,11 @@
 namespace App\Providers;
 
 use App\Events\movimientoCreado;
+use App\Events\movimientoEliminado;
+
 use App\Listeners\actualizaExistencia;
+use App\Listeners\elminiaExistencia;
+
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;

@@ -10,7 +10,7 @@ class locacion extends Model
     use HasFactory;
 
     protected $table = 'locaciones';
-
+ 
     protected $fillable = [
         'nombre' 
     ];

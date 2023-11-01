@@ -17,5 +17,9 @@ class stock_move_typesSeeder extends Seeder
             'nombre' => "Inventario incial",
             'tipo_base' => "Entrada" 
         ]);
+        DB::table('stock_move_types')->insert([
+            'nombre' => "Compra",
+            'tipo_base' => "Entrada" 
+        ]);
     }
 }
