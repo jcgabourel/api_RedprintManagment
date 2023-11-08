@@ -16,6 +16,11 @@ class contactsController extends Controller
         $data = ["id" => "int", "nombre" => "string"];
         return   $data;
     }
+    function    proveedores()
+    {
+        $data = ["id" => "int", "nombre" => "string"];
+        return   $data;
+    }
 
     function    locaciones()
     {

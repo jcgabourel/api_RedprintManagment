@@ -11,6 +11,7 @@ use App\Http\Controllers\existenciasController;
 use App\Http\Controllers\movimientosController;
 use App\Http\Controllers\proveedoresController;
 use App\Http\Controllers\tiposmovimientoController;
+use App\Http\Controllers\comprasController;
 
 
 
@@ -38,12 +39,13 @@ Route::apiResource ('categorias',categoriasController::class);
 Route::apiResource ('marcas',marcasController::class);
 Route::apiResource ('locaciones',locacionesController::class)->parameters(['locaciones' => 'locacion']);
 Route::apiResource ('proveedores',proveedoresController::class)->parameters(['proveedores' => 'proveedor']);
-
-//Route::get('locaciones/{locacion}',[locacionesController::class,'show']);
-
 Route::apiResource ('productos',productosController::class);
 Route::apiResource ('existencias',existenciasController::class);
 Route::apiResource ('movimientos',movimientosController::class);
+Route::apiResource ('compras',comprasController::class);
+
+
+
 Route::post('movimientos/batch',[movimientosController::class,'storeBatch']);
 Route::apiResource ('tiposmovimiento',tiposmovimientoController::class);
 
@@ -54,6 +56,7 @@ Route::apiResource ('tiposmovimiento',tiposmovimientoController::class);
 
 Route::get('contracts/categorias',[contactsController::class,'categorias']);
 Route::get('contracts/marcas',[contactsController::class,'marcas']);
+Route::get('contracts/proveedores',[contactsController::class,'proveedores']);
 Route::get('contracts/locaciones',[contactsController::class,'locaciones']);
 Route::get('contracts/productos',[contactsController::class,'productos']);
 Route::get('contracts/existencias',[contactsController::class,'existencias']);
