@@ -4,26 +4,63 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\compra;
+use App\Models\detalleCompra;
 
 class comprasController extends Controller
 {
     function index()
     {
-        return compra::with("producto","locacion","tipo")->get();
+        return compra::with("proveedor","detalle")->get();
     }
 
     function store(Request $request)
-    { //'producto_id' ,'locacion_id','cantidad','stock_move_type_id''
+    {  
+
+        $request->validate([
+            'proveedor_id' => 'required|integer',
+            'productos' => 'required|array',
+        ]);
+
+        
+
+        // Obtener los datos del JSON
+        $fecha = $request->input('fecha');
+        $proveedorId = $request->input('proveedor_id');
+        $productos = $request->input('productos');
+
+        
+        try {
+            //code...
+
+            
+            $compra = compra::create(["proveedor_id"=>$proveedorId,"fecha"=>$fecha]);
+ 
+             foreach ($productos as $producto) {                
+                 
+
+                 $productoId = $producto['producto_id'];
+                 $cantidad = $producto['cantidad'];
+                 $precio = $producto['precio'];
+                
+                
+               
+                 detalleCompra::create([
+                     'compra_id' => $compra->id,
+                     'producto_id' => $productoId,
+                     'cantidad' => $cantidad,
+                     'precio' => $precio,
+                 ]);
+             }
+
+            return $compra ;
+
+        } catch (\Throwable $th) {
+           return $th ;
+        }
+
+       return "fin" ;
 
        
-        $compra = compra::create([
-            "producto_id" => $request->input("producto_id"),
-            "locacion_id" => $request->input("locacion_id"),
-            "cantidad" => $request->input("cantidad"),
-            "estatus" =>'Procesado',
-            "stock_move_type_id" => $request->input("stock_move_type_id")
-        ]);
-        return $compra ;
     }
 
     function storeBatch(Request $request){
