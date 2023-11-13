@@ -17,8 +17,9 @@ class compra extends Model
         'proveedor_id' ,'fecha'
     ];
 
+    protected $appends = ['total'];
     
-    protected $visible = [ 'id', 'proveedor' ,'fecha','detalle'];
+    protected $visible = [ 'id', 'proveedor' ,'fecha','detalle','total'];
  
 
     public function proveedor()
@@ -30,6 +31,17 @@ class compra extends Model
     {
         return $this->hasMany(detalleCompra::class);
     }
+
+    public function getTotalAttribute()
+    {
+        return $this->detalle->sum('total');
+    }
+    
+   
+ 
+
+
+
 
    
 }
