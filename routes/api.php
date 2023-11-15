@@ -12,6 +12,8 @@ use App\Http\Controllers\movimientosController;
 use App\Http\Controllers\proveedoresController;
 use App\Http\Controllers\tiposmovimientoController;
 use App\Http\Controllers\comprasController;
+use App\Http\Controllers\detallecomprasController;
+
 
 
 
@@ -42,7 +44,14 @@ Route::apiResource ('proveedores',proveedoresController::class)->parameters(['pr
 Route::apiResource ('productos',productosController::class);
 Route::apiResource ('existencias',existenciasController::class);
 Route::apiResource ('movimientos',movimientosController::class);
+
 Route::apiResource ('compras',comprasController::class);
+
+//Route::post('compras/{id}/ingresar',[comprasController::class,'ingresar']);
+
+
+Route::get ('detallecompras/{id}', [detallecomprasController::class, 'index']);
+
 
 
 
@@ -60,6 +69,8 @@ Route::get('contracts/proveedores',[contactsController::class,'proveedores']);
 Route::get('contracts/locaciones',[contactsController::class,'locaciones']);
 Route::get('contracts/productos',[contactsController::class,'productos']);
 Route::get('contracts/existencias',[contactsController::class,'existencias']);
+Route::get('contracts/detallecompras',[contactsController::class,'detallecompras']);
+
 
 
 

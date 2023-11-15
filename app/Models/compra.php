@@ -14,12 +14,12 @@ class compra extends Model
     
     protected $table = 'compras';
     protected $fillable = [
-        'proveedor_id' ,'fecha'
+        'proveedor_id' ,'fecha' ,'estatus'
     ];
 
     protected $appends = ['total'];
     
-    protected $visible = [ 'id', 'proveedor' ,'fecha','detalle','total'];
+    protected $visible = [ 'id', 'proveedor' ,'fecha','detalle','total','estatus'];
  
 
     public function proveedor()

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('proveedor_id')->constrained("proveedores");
             $table->date('fecha');
+            $table->enum('estatus',["Sin Ingresar","Ingresado"]);
             $table->timestamps();
         });
     }

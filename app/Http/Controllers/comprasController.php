@@ -36,11 +36,12 @@ class comprasController extends Controller
         $productos = $request->input('productos');
 
 
+
         try {
             //code...
 
 
-            $compra = compra::create(["proveedor_id" => $proveedorId, "fecha" => $fecha]);
+            $compra = compra::create(["proveedor_id" => $proveedorId, "fecha" => $fecha ,"estatus"=>"Sin Ingresar"]  );
 
             foreach ($productos as $producto) {
 

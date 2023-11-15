@@ -39,4 +39,10 @@ class contactsController extends Controller
         $data = ["id" => "int", "producto" => "nombre","locaciones"=>"nombre" ,"cantidad"=>"int"];
         return   $data;
     }
+
+    function detallecompras()
+    {
+        return ["id"=>"int" ,"producto"=>"nombre" ,"cantidad"=>"number" , "precio"=>"number"];
+    }
+
 }
