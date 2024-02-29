@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\movimiento;
+use Carbon\Carbon;
 
 
 class movimientosController extends Controller
@@ -22,7 +23,8 @@ class movimientosController extends Controller
             "locacion_id" => $request->input("locacion_id"),
             "cantidad" => $request->input("cantidad"),
             "estatus" =>'Procesado',
-            "stock_move_type_id" => $request->input("stock_move_type_id")
+            "stock_move_type_id" => $request->input("stock_move_type_id"),
+            "fecha"=> Carbon::now()
         ]);
         return $movimiento ;
     }

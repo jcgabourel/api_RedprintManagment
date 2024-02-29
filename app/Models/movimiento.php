@@ -16,11 +16,11 @@ class movimiento extends Model
 
     protected $table = 'stock_moves';
     protected $fillable = [
-        'producto_id' ,'locacion_id','cantidad','stock_move_type_id','estatus'
+        'producto_id' ,'locacion_id','cantidad','stock_move_type_id','estatus','fecha'
     ];
 
     
-    protected $visible = [ 'id', 'producto','locacion','tipo','cantidad','estatus'];
+    protected $visible = [ 'id', 'producto','locacion','tipo','cantidad','estatus','fecha'];
 
     // protected $attributes = [
     //     'estatus' => 'Pendiente'          

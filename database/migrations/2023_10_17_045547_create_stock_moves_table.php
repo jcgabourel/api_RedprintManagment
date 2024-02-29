@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('cantidad');
             $table->foreignId('stock_move_type_id')->constrained();
             $table->enum('estatus',["Pendiente","Procesado"]);
+            $table->date('fecha');
             $table->timestamps();
         });
     }

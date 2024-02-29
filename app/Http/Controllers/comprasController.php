@@ -62,7 +62,9 @@ class comprasController extends Controller
 
             return $compra;
         } catch (\Throwable $th) {
-            return $th;
+
+            return response()->json('Error',400);
+            //return $th;
         }
 
         return "fin";
